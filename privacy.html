@@ -49,6 +49,46 @@ main ul{color:var(--muted);margin:0 0 14px;padding-left:20px}main li{margin:0 0 
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="theme-color" content="#FAF6EF">
+<!-- Google tag (GA4 + Ads) — грузится только после согласия в баннере cookie -->
+<script>
+(function(){
+  var GA='G-D163CLBLMD', ADS=''; /* ADS: сюда код AW-… */
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){dataLayer.push(arguments);};
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
+  var loaded=false;
+  function apply(c){
+    if(!c) return;
+    gtag('consent','update',{
+      analytics_storage:c.analytics?'granted':'denied',
+      ad_storage:c.marketing?'granted':'denied',
+      ad_user_data:c.marketing?'granted':'denied',
+      ad_personalization:c.marketing?'granted':'denied'
+    });
+    if(!loaded && (c.analytics||c.marketing)){
+      loaded=true;
+      var s=document.createElement('script'); s.async=true;
+      s.src='https://www.googletagmanager.com/gtag/js?id='+GA; document.head.appendChild(s);
+      gtag('js',new Date());
+      gtag('config',GA);
+      if(ADS) gtag('config',ADS);
+    }
+  }
+  var c=null; try{ c=JSON.parse(localStorage.getItem('bbc-cookie-consent')||'null'); }catch(e){}
+  apply(c);
+  window.addEventListener('bbc:consent',function(e){ apply(e.detail); });
+  /* целевые действия: Booksy, Instagram, WhatsApp, телефон */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]'); if(!a||!loaded) return;
+    var h=a.getAttribute('href')||'', ev='';
+    if(/booksy\.com/i.test(h)) ev='booksy_click';
+    else if(/ig\.me|instagram\.com/i.test(h)) ev='instagram_click';
+    else if(/wa\.me|whatsapp/i.test(h)) ev='whatsapp_click';
+    else if(/^tel:/i.test(h)) ev='phone_click';
+    if(ev) gtag('event',ev,{link_url:h,page_language:document.documentElement.lang,transport_type:'beacon'});
+  },true);
+})();
+</script>
 </head>
 <body>
 <div class="curtain" aria-hidden="true"></div>
