@@ -54,7 +54,7 @@ main ul{color:var(--muted);margin:0 0 14px;padding-left:20px}main li{margin:0 0 
 <script>
 (function(){
   var GA='G-D163CLBLMD', ADS='AW-18531775825';
-  var CONV={booksy:'AW-18531775825/tuRCCLSRy6sdENHq0YRF', kontakt:'AW-18531775825/xA-QCJ-_zKsdENHq0YRF'}; /* kontakt: метка конверсии WhatsApp/Instagram */
+  var CONV={form:'AW-18531775825/tuRCCLSRy6sdENHq0YRF', kontakt:'AW-18531775825/xA-QCJ-_zKsdENHq0YRF'}; /* kontakt: метка конверсии WhatsApp/Instagram */
   window.dataLayer=window.dataLayer||[];
   window.gtag=function(){dataLayer.push(arguments);};
   gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
@@ -79,16 +79,17 @@ main ul{color:var(--muted);margin:0 0 14px;padding-left:20px}main li{margin:0 0 
   var c=null; try{ c=JSON.parse(localStorage.getItem('bbc-cookie-consent')||'null'); }catch(e){}
   apply(c);
   window.addEventListener('bbc:consent',function(e){ apply(e.detail); });
-  /* целевые действия: Booksy, Instagram, WhatsApp, телефон */
+  /* заявка с формы на сайте */
+  window.bbcLead=function(svc){ if(!loaded) return; gtag('event','generate_lead',{service:svc||'',page_language:document.documentElement.lang}); gtag('event','conversion',{send_to:CONV.form}); };
+  /* целевые действия: Instagram, WhatsApp, телефон */
   document.addEventListener('click',function(e){
     var a=e.target.closest&&e.target.closest('a[href]'); if(!a||!loaded) return;
     var h=a.getAttribute('href')||'', ev='';
-    if(/booksy\.com/i.test(h)) ev='booksy_click';
-    else if(/ig\.me|instagram\.com/i.test(h)) ev='instagram_click';
+    if(/ig\.me|instagram\.com/i.test(h)) ev='instagram_click';
     else if(/wa\.me|whatsapp/i.test(h)) ev='whatsapp_click';
     else if(/^tel:/i.test(h)) ev='phone_click';
     if(ev) gtag('event',ev,{link_url:h,page_language:document.documentElement.lang,transport_type:'beacon'});
-    var cv = ev==='booksy_click' ? CONV.booksy : ((ev==='whatsapp_click'||ev==='instagram_click') ? CONV.kontakt : '');
+    var cv = (ev==='whatsapp_click'||ev==='instagram_click') ? CONV.kontakt : '';
     if(cv) gtag('event','conversion',{send_to:cv,transport_type:'beacon'});
   },true);
 })();
@@ -110,10 +111,10 @@ main ul{color:var(--muted);margin:0 0 14px;padding-left:20px}main li{margin:0 0 
     <p>Administratorem Twoich danych osobowych jest <b>Marina Barnowska</b>, prowadząca jednoosobową działalność gospodarczą (marka Barnowska Beauty Clinic), NIP 6030079647, REGON 385401315, ul. Marszałkowska 140/3, 00-061 Warszawa.<br>Kontakt w sprawach danych osobowych: <a href="mailto:marinabarnowska@gmail.com">marinabarnowska@gmail.com</a>, tel. <a href="tel:+48736363933">+48 736 363 933</a>.</p>
     <h2>Jakie dane przetwarzamy</h2>
     <ul>
-      <li><b>Dane kontaktowe</b>: imię, numer telefonu, adres e-mail, nazwa profilu w komunikatorze — gdy kontaktujesz się z nami telefonicznie, przez WhatsApp, Instagram lub e-mail albo rezerwujesz wizytę w Booksy.</li>
+      <li><b>Dane kontaktowe</b>: imię, numer telefonu, adres e-mail, nazwa profilu w komunikatorze — gdy kontaktujesz się z nami telefonicznie, przez WhatsApp, Instagram lub e-mail albo wysyłasz formularz zapisu na stronie (imię, nazwisko, telefon, e-mail, wybrany zabieg i komentarz).</li>
       <li><b>Dane o korzystaniu ze strony</b>: adres IP, typ przeglądarki i urządzenia, odwiedzone podstrony, źródło wejścia (np. reklama Google) — w zakresie zależnym od Twoich ustawień cookies.</li>
     </ul>
-    <p>Strona nie zawiera formularzy i nie zbiera informacji o Twoim zdrowiu. Wywiad medyczny przeprowadzamy wyłącznie podczas wizyty w klinice.</p>
+    <p>Formularz na stronie służy wyłącznie do kontaktu w sprawie wizyty — prosimy nie wpisywać w nim informacji o zdrowiu. Wywiad medyczny przeprowadzamy wyłącznie podczas wizyty w klinice.</p>
     <h2>Cele i podstawy prawne</h2>
     <ul>
       <li>odpowiedź na wiadomość, konsultacja i umówienie wizyty — art. 6 ust. 1 lit. b RODO (działania przed zawarciem umowy i jej wykonanie);</li>
@@ -126,11 +127,11 @@ main ul{color:var(--muted);margin:0 0 14px;padding-left:20px}main li{margin:0 0 
     <ul>
       <li>hosting strony — GitHub Inc. (GitHub Pages) oraz dostawca domeny Hostinger;</li>
       <li>analityka i reklama (tylko po wyrażeniu zgody) — Google Ireland Ltd. (Google Analytics, Google Ads);</li>
-      <li>rezerwacje — Booksy International sp. z o.o.;</li>
+      <li>formularz zapisu — Google Ireland Ltd. (Google Sheets, Google Apps Script i Gmail: przechowywanie zgłoszeń i powiadomienia e-mail);</li>
       <li>komunikacja — Meta Platforms Ireland Ltd. (Instagram, WhatsApp);</li>
       <li>biuro rachunkowe i organy państwowe — gdy wymagają tego przepisy.</li>
     </ul>
-    <p>Booksy, Instagram i WhatsApp przetwarzają dane również według własnych polityk prywatności. Część z tych firm może przekazywać dane do USA — na podstawie decyzji Komisji Europejskiej (EU-US Data Privacy Framework) lub standardowych klauzul umownych.</p>
+    <p>Instagram i WhatsApp przetwarzają dane również według własnych polityk prywatności. Część z tych firm może przekazywać dane do USA — na podstawie decyzji Komisji Europejskiej (EU-US Data Privacy Framework) lub standardowych klauzul umownych.</p>
     <h2>Jak długo przechowujemy dane</h2>
     <ul>
       <li>korespondencja i dane z rezerwacji — przez czas potrzebny do obsługi, a następnie do upływu terminu przedawnienia roszczeń;</li>

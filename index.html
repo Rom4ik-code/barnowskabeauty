@@ -1063,6 +1063,54 @@ a.rt:hover{border-color:var(--ink)}
   .about .media figcaption span:last-child{white-space:normal}
   .hero-aside .stars{letter-spacing:2px}
 }
+
+/* ===== форма заявки ===== */
+.bk-form{width:100%;max-width:620px;display:flex;flex-direction:column;gap:18px}
+.bk-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+.bk-wide{grid-column:1/-1}
+.bk-f{display:flex;flex-direction:column;gap:7px}
+.bk-f>span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,253,249,.62)}
+.bk-f input,.bk-f select,.bk-f textarea{box-sizing:border-box;width:100%;font:inherit;font-size:15px;line-height:1.4;color:var(--warm);background:rgba(255,253,249,.07);border:1px solid rgba(255,253,249,.24);border-radius:3px;padding:12px 14px;outline:none;transition:border-color .4s,background .4s;-webkit-appearance:none;appearance:none}
+.bk-f textarea{resize:vertical;min-height:52px}
+.bk-f select{padding-right:40px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23DCC3AE' stroke-width='1.4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.bk-f select option{color:#2A211B;background:#FFFDF9}
+.bk-f input::placeholder,.bk-f textarea::placeholder{color:rgba(255,253,249,.38)}
+.bk-f input:focus,.bk-f select:focus,.bk-f textarea:focus{border-color:var(--nude);background:rgba(255,253,249,.11)}
+.bk-f .bad{border-color:#E9A58E;background:rgba(233,165,142,.08)}
+.bk-hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0}
+.bk-consent{display:flex;gap:12px;align-items:flex-start;font-size:12.5px;line-height:1.6;color:rgba(255,253,249,.66);cursor:pointer}
+.bk-consent input{flex:none;width:17px;height:17px;margin:2px 0 0;accent-color:#DCC3AE}
+.bk-consent.bad{color:#F0B4A0}
+.bk-consent a{color:var(--warm);border-bottom:1px solid rgba(255,253,249,.35)}
+.bk-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+button.btn{border:0;cursor:pointer;font-family:inherit}
+.bk-submit[disabled]{opacity:.6;pointer-events:none}
+.bk-msg{margin:0!important;max-width:34ch!important;font-size:13.5px!important;line-height:1.5;color:var(--nude)!important}
+.bk-msg.err{color:#F0B4A0!important}
+.bk-form.sent .bk-grid,.bk-form.sent .bk-consent,.bk-form.sent .bk-submit{display:none}
+.bk-form.sent .bk-msg{font-family:var(--serif);font-size:clamp(22px,2vw,28px)!important;line-height:1.25;color:var(--warm)!important;max-width:24ch!important}
+.btn-ghost{background:transparent;color:var(--warm);border:1px solid rgba(255,253,249,.4)}
+.btn-ghost::before{background:rgba(255,253,249,.12)}
+.cta-inner{padding-top:clamp(90px,10vw,140px);padding-bottom:clamp(70px,8vw,110px)}
+/* всплывающая карточка */
+.bk-pop{position:fixed;right:var(--gutter);bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:150;width:min(380px,calc(100vw - 2*var(--gutter)));box-sizing:border-box;
+  background:rgba(255,253,249,.96);-webkit-backdrop-filter:blur(20px) saturate(1.2);backdrop-filter:blur(20px) saturate(1.2);border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(42,33,27,.45);padding:26px 26px 22px;color:var(--ink);
+  opacity:0;transform:translate3d(0,24px,0);pointer-events:none;visibility:hidden;transition:opacity .9s var(--ease),transform 1s var(--ease),visibility 0s .9s}
+.bk-pop.on{opacity:1;transform:none;pointer-events:auto;visibility:visible;transition:opacity .9s var(--ease),transform 1s var(--ease),visibility 0s}
+.bk-pop h3{font-family:var(--serif);font-weight:300;font-size:28px;line-height:1.1;margin:12px 0 10px}
+.bk-pop h3 em{color:var(--brown)}
+.bk-pop p{margin:0 0 18px;font-size:13px;line-height:1.65;color:var(--muted)}
+.bk-pop .ck-btn{display:flex;align-items:center;justify-content:center;width:100%;box-sizing:border-box;border:1px solid var(--ink)}
+.bk-pop-x{position:absolute;top:10px;right:12px;width:36px;height:36px;border:0;background:none;font-size:26px;line-height:1;color:var(--muted);cursor:pointer;border-radius:50%}
+.bk-pop-x:hover{color:var(--ink);background:rgba(42,33,27,.06)}
+.bk-pop-open .wa-float{opacity:0!important;pointer-events:none!important}
+@media (max-width:640px){
+  .bk-grid{grid-template-columns:1fr;gap:12px}
+  .bk-form{max-width:none}
+  .bk-row{flex-direction:column;align-items:stretch}
+  .bk-pop{left:12px;right:12px;width:auto;bottom:calc(82px + env(safe-area-inset-bottom,0px));padding:22px 20px 18px}
+  .bk-pop h3{font-size:24px}
+}
 /* ===== logo Barnowska Beauty Clinic ===== */
 .logo{flex-direction:row!important;align-items:center;gap:14px;color:var(--ink)}
 .lg-mono{display:block;width:48px;height:48px;flex:none;transition:width .8s var(--ease),height .8s var(--ease)}
@@ -1156,7 +1204,7 @@ a.rt:hover{border-color:var(--ink)}
 <script>
 (function(){
   var GA='G-D163CLBLMD', ADS='AW-18531775825';
-  var CONV={booksy:'AW-18531775825/tuRCCLSRy6sdENHq0YRF', kontakt:'AW-18531775825/xA-QCJ-_zKsdENHq0YRF'}; /* kontakt: метка конверсии WhatsApp/Instagram */
+  var CONV={form:'AW-18531775825/tuRCCLSRy6sdENHq0YRF', kontakt:'AW-18531775825/xA-QCJ-_zKsdENHq0YRF'}; /* kontakt: метка конверсии WhatsApp/Instagram */
   window.dataLayer=window.dataLayer||[];
   window.gtag=function(){dataLayer.push(arguments);};
   gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
@@ -1181,16 +1229,17 @@ a.rt:hover{border-color:var(--ink)}
   var c=null; try{ c=JSON.parse(localStorage.getItem('bbc-cookie-consent')||'null'); }catch(e){}
   apply(c);
   window.addEventListener('bbc:consent',function(e){ apply(e.detail); });
-  /* целевые действия: Booksy, Instagram, WhatsApp, телефон */
+  /* заявка с формы на сайте */
+  window.bbcLead=function(svc){ if(!loaded) return; gtag('event','generate_lead',{service:svc||'',page_language:document.documentElement.lang}); gtag('event','conversion',{send_to:CONV.form}); };
+  /* целевые действия: Instagram, WhatsApp, телефон */
   document.addEventListener('click',function(e){
     var a=e.target.closest&&e.target.closest('a[href]'); if(!a||!loaded) return;
     var h=a.getAttribute('href')||'', ev='';
-    if(/booksy\.com/i.test(h)) ev='booksy_click';
-    else if(/ig\.me|instagram\.com/i.test(h)) ev='instagram_click';
+    if(/ig\.me|instagram\.com/i.test(h)) ev='instagram_click';
     else if(/wa\.me|whatsapp/i.test(h)) ev='whatsapp_click';
     else if(/^tel:/i.test(h)) ev='phone_click';
     if(ev) gtag('event',ev,{link_url:h,page_language:document.documentElement.lang,transport_type:'beacon'});
-    var cv = ev==='booksy_click' ? CONV.booksy : ((ev==='whatsapp_click'||ev==='instagram_click') ? CONV.kontakt : '');
+    var cv = (ev==='whatsapp_click'||ev==='instagram_click') ? CONV.kontakt : '';
     if(cv) gtag('event','conversion',{send_to:cv,transport_type:'beacon'});
   },true);
 })();
@@ -1270,7 +1319,7 @@ a.rt:hover{border-color:var(--ink)}
     </div>
   </div>
 
-  <a href="https://booksy.com/pl-pl/111627_marsele-beauty-clinic-kosmetologia-masaz-mezoterapia-laserowa-epilacja_salon-kosmetyczny_3_warszawa" target="_blank" rel="noopener" class="orbit ld magnetic" style="transition-delay:2.3s" aria-label="Umów wizytę" data-cursor="view">
+  <a href="#booking" class="orbit ld magnetic" style="transition-delay:2.3s" aria-label="Umów wizytę" data-cursor="view">
     <svg class="ring-text" viewBox="0 0 100 100" aria-hidden="true">
       <defs><path id="orbitPath" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
       <text><textPath href="#orbitPath" textLength="236">BOOK YOUR APPOINTMENT • BOOK YOUR APPOINTMENT •</textPath></text>
@@ -1318,7 +1367,7 @@ a.rt:hover{border-color:var(--ink)}
         <div class="p-cols"><div class="reveal"><h4>Na co działa</h4><p>Blizny i ślady potrądzikowe, rozstępy, nierówna struktura i rozszerzone pory, utrata gęstości i napięcia skóry twarzy i ciała.</p></div><div class="reveal"><h4>Dla kogo</h4><p>Dla skóry w każdym wieku — od 17 lat. Szczególnie polecany kobietom po ciąży: redukuje rozstępy i przywraca skórze jędrność.</p></div><div class="reveal"><h4>Bezpieczeństwo</h4><p>Energia trafia pod powierzchnię skóry, dlatego ryzyko przebarwień jest minimalne — zabieg jest odpowiedni dla różnych fototypów. Po zabiegu — 2–3 dni lekkiego zaczerwienienia.</p></div></div>
         <div class="p-combo reveal"><h4>Wzmacniamy preparatami</h4><ul class="chips"><li>Polinukleotydy</li><li>Peptydy</li><li>Glutation</li><li>Kwas polimlekowy</li></ul><p>W połączeniu z preparatami Morpheus 8 daje maksymalny efekt dla jakości skóry.</p></div>
         <div class="reveal"><dl class="specs"><div><dt>Seria</dt><dd>1–3 zabiegi</dd></div><div><dt>Odstęp</dt><dd>4–6 tygodni</dd></div><div><dt>Rekonwalescencja</dt><dd>2–3 dni</dd></div></dl></div>
-        <div class="p-actions reveal"><a href="https://booksy.com/pl-pl/111627_marsele-beauty-clinic-kosmetologia-masaz-mezoterapia-laserowa-epilacja_salon-kosmetyczny_3_warszawa" target="_blank" rel="noopener" class="btn btn-dark magnetic"><span class="lbl">Umów Morpheus 8</span> <span class="arr"></span></a><a href="#prices" class="p-price-link" data-tab="hw" data-q="Morpheus">Cennik Morpheus 8 <span class="arr"></span></a></div>
+        <div class="p-actions reveal"><a href="#booking" data-svc="Morpheus 8" class="btn btn-dark magnetic"><span class="lbl">Umów Morpheus 8</span> <span class="arr"></span></a><a href="#prices" class="p-price-link" data-tab="hw" data-q="Morpheus">Cennik Morpheus 8 <span class="arr"></span></a></div>
       </div>
     </article>
 
@@ -1383,19 +1432,19 @@ a.rt:hover{border-color:var(--ink)}
     <div class="services-grid body-grid">
       <div class="svc hov reveal"><div class="inner">
         <div class="media img-reveal"><video class="m-video" data-anim="video/laser.webp" poster="img/laser-poster.jpg" muted loop playsinline preload="metadata" aria-label="Zabieg depilacji laserowej w klinice"><source src="video/laser.mp4" type="video/mp4"><source src="video/laser.webm" type="video/webm"></video></div>
-        <div class="meta"><div class="m-top"><span class="idx">(05)</span><span class="dur">twarz i ciało</span></div><h3>Depilacja laserowa</h3><p>Włoska platforma laserowa skutecznie usuwa niechciane owłosienie z twarzy i ciała. Wbudowane chłodzenie zapewnia komfort zabiegu, seria — 6–8 zabiegów.</p><a href="https://booksy.com/pl-pl/111627_marsele-beauty-clinic-kosmetologia-masaz-mezoterapia-laserowa-epilacja_salon-kosmetyczny_3_warszawa" target="_blank" rel="noopener" class="go">Umów się <span class="arr"></span></a></div>
+        <div class="meta"><div class="m-top"><span class="idx">(05)</span><span class="dur">twarz i ciało</span></div><h3>Depilacja laserowa</h3><p>Włoska platforma laserowa skutecznie usuwa niechciane owłosienie z twarzy i ciała. Wbudowane chłodzenie zapewnia komfort zabiegu, seria — 6–8 zabiegów.</p><a href="#booking" data-svc="Depilacja laserowa" class="go">Umów się <span class="arr"></span></a></div>
       </div></div>
       <div class="svc hov reveal"><div class="inner">
         <div class="media img-reveal"><video class="m-video" data-anim="video/lpg.webp" poster="img/lpg-poster.jpg" muted loop playsinline preload="metadata" aria-label="Endermologia LPG w klinice"><source src="video/lpg.mp4" type="video/mp4"><source src="video/lpg.webm" type="video/webm"></video></div>
-        <div class="meta"><div class="m-top"><span class="idx">(06)</span><span class="dur">40 min</span></div><h3>Endermologia LPG</h3><p>Aparaturowy masaż podciśnieniowo-rolkowy w specjalnym kombinezonie. Wygładza cellulit, pobudza drenaż limfatyczny i przywraca skórze jędrność.</p><a href="https://booksy.com/pl-pl/111627_marsele-beauty-clinic-kosmetologia-masaz-mezoterapia-laserowa-epilacja_salon-kosmetyczny_3_warszawa" target="_blank" rel="noopener" class="go">Umów się <span class="arr"></span></a></div>
+        <div class="meta"><div class="m-top"><span class="idx">(06)</span><span class="dur">40 min</span></div><h3>Endermologia LPG</h3><p>Aparaturowy masaż podciśnieniowo-rolkowy w specjalnym kombinezonie. Wygładza cellulit, pobudza drenaż limfatyczny i przywraca skórze jędrność.</p><a href="#booking" data-svc="LPG / Endosphere / presoterapia" class="go">Umów się <span class="arr"></span></a></div>
       </div></div>
       <div class="svc hov reveal"><div class="inner">
         <div class="media img-reveal"><video class="m-video" data-anim="video/laserskin.webp" poster="img/laserskin-poster.jpg" muted loop playsinline preload="metadata" aria-label="Laseroterapia skóry twarzy w klinice"><source src="video/laserskin.mp4" type="video/mp4"><source src="video/laserskin.webm" type="video/webm"></video></div>
-        <div class="meta"><div class="m-top"><span class="idx">(07)</span><span class="dur">30–60 min</span></div><h3>Laseroterapia skóry</h3><p>Laser delikatnie rozwiązuje problemy skóry: usuwa pajączki, wyrównuje koloryt i teksturę. Peeling węglowy twarzy i pleców oczyszcza pory i przywraca blask.</p><a href="https://booksy.com/pl-pl/111627_marsele-beauty-clinic-kosmetologia-masaz-mezoterapia-laserowa-epilacja_salon-kosmetyczny_3_warszawa" target="_blank" rel="noopener" class="go">Umów się <span class="arr"></span></a></div>
+        <div class="meta"><div class="m-top"><span class="idx">(07)</span><span class="dur">30–60 min</span></div><h3>Laseroterapia skóry</h3><p>Laser delikatnie rozwiązuje problemy skóry: usuwa pajączki, wyrównuje koloryt i teksturę. Peeling węglowy twarzy i pleców oczyszcza pory i przywraca blask.</p><a href="#booking" data-svc="Laseroterapia skóry" class="go">Umów się <span class="arr"></span></a></div>
       </div></div>
       <div class="svc hov reveal"><div class="inner">
         <div class="media img-reveal"><video class="m-video" data-anim="video/presso.webp" poster="img/presso-poster.jpg" muted loop playsinline preload="metadata" aria-label="Zabieg presoterapii w klinice"><source src="video/presso.mp4" type="video/mp4"><source src="video/presso.webm" type="video/webm"></video></div>
-        <div class="meta"><div class="m-top"><span class="idx">(08)</span><span class="dur">40 min</span></div><h3>Presoterapia</h3><p>Aparaturowy drenaż limfatyczny: mankiety falowo uciskają nogi i brzuch. Znikają obrzęki i uczucie ciężkich nóg, zmniejszają się obwody.</p><a href="https://booksy.com/pl-pl/111627_marsele-beauty-clinic-kosmetologia-masaz-mezoterapia-laserowa-epilacja_salon-kosmetyczny_3_warszawa" target="_blank" rel="noopener" class="go">Umów się <span class="arr"></span></a></div>
+        <div class="meta"><div class="m-top"><span class="idx">(08)</span><span class="dur">40 min</span></div><h3>Presoterapia</h3><p>Aparaturowy drenaż limfatyczny: mankiety falowo uciskają nogi i brzuch. Znikają obrzęki i uczucie ciężkich nóg, zmniejszają się obwody.</p><a href="#booking" data-svc="LPG / Endosphere / presoterapia" class="go">Umów się <span class="arr"></span></a></div>
       </div></div>
     </div>
     <div class="svc-progress" aria-hidden="true"><span class="bar"><i id="svcBar"></i></span><span class="count" id="svcCount">01 / 04</span></div>
@@ -1480,7 +1529,7 @@ a.rt:hover{border-color:var(--ink)}
       </ul>
       <div class="stats" id="stats">
         <div class="reveal"><span class="stat-num" data-to="120">0</span><p>opinii w Google · 4,9 ★</p></div>
-        <div class="reveal"><span class="stat-num" data-to="67">0</span><p>opinii w Booksy · 4,8 ★</p></div>
+        <div class="reveal"><span class="stat-num" data-to="10" data-suffix="+">0+</span><p>lat doświadczenia</p></div>
         <div class="reveal"><span class="stat-num" data-to="5000" data-suffix="+" data-format="space">0+</span><p>zadowolonych klientek</p></div>
       </div>
     </div>
@@ -1521,7 +1570,7 @@ a.rt:hover{border-color:var(--ink)}
           <button class="t-btn circle-arrow hov" id="tNext" aria-label="Następna opinia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
           <span class="t-count" id="tCount">01 <span>/ 05</span></span>
         </div>
-        <div class="rt-badges"><a href="https://booksy.com/pl-pl/111627_marsele-beauty-clinic-kosmetologia-masaz-mezoterapia-laserowa-epilacja_salon-kosmetyczny_3_warszawa" target="_blank" rel="noopener" class="rt"><b>4,8</b><span>★★★★★</span><small>Booksy · 67 opinii</small></a><div class="rt"><b>4,9</b><span>★★★★★</span><small>Google · 120 opinii</small></div></div>
+        <div class="rt-badges"><div class="rt"><b>4,9</b><span>★★★★★</span><small>Google · 120 opinii</small></div></div>
       </div>
     </div>
     <div class="t-viewport reveal" id="tViewport" data-cursor="drag">
@@ -1530,27 +1579,27 @@ a.rt:hover{border-color:var(--ink)}
         <article class="t-card"><div class="t-text">
           <span class="stars" aria-label="5 gwiazdek">★★★★★</span>
           <blockquote lang="pl">Ogromne podziękowania dla Mariny — prawdziwej profesjonalistki.</blockquote>
-          <footer><b>Anastazja N.</b><small>Peeling węglowy · Booksy · tłum. z ros.</small></footer>
+          <footer><b>Anastazja N.</b><small>Peeling węglowy</small></footer>
         </div></article>
         <article class="t-card"><div class="t-text">
           <span class="stars" aria-label="5 gwiazdek">★★★★★</span>
           <blockquote lang="pl">Wielkie dzięki dla kliniki za niesamowity efekt po zabiegu RF-liftingu!</blockquote>
-          <footer><b>Julia B.</b><small>RF-lifting · Booksy · tłum. z ukr.</small></footer>
+          <footer><b>Julia B.</b><small>Lifting RF</small></footer>
         </div></article>
         <article class="t-card"><div class="t-text">
           <span class="stars" aria-label="5 gwiazdek">★★★★★</span>
           <blockquote lang="pl">Dziękuję bardzo, super profesjonalnie, dokładnie i w miłej atmosferze przeprowadzone zabiegi :)</blockquote>
-          <footer><b>Paulina K.</b><small>Booksy</small></footer>
+          <footer><b>Paulina K.</b></footer>
         </div></article>
         <article class="t-card"><div class="t-text">
           <span class="stars" aria-label="5 gwiazdek">★★★★★</span>
           <blockquote lang="pl">Dziękuję bardzo, miła atmosfera, profesjonalna obsługa. Polecam.</blockquote>
-          <footer><b>Valentina</b><small>Booksy</small></footer>
+          <footer><b>Valentina</b></footer>
         </div></article>
         <article class="t-card"><div class="t-text">
           <span class="stars" aria-label="5 gwiazdek">★★★★★</span>
           <blockquote lang="pl">Bardzo dziękuję za dzisiejszą wizytę. Jestem zadowolona. Do kolejnego.</blockquote>
-          <footer><b>Natallia</b><small>Booksy</small></footer>
+          <footer><b>Natallia</b></footer>
         </div></article>
       </div>
       <div class="t-dots" id="tDots"></div>
@@ -1595,13 +1644,13 @@ a.rt:hover{border-color:var(--ink)}
         <div class="of-top"><span class="of-tag">Ciało</span><span class="of-date">do 31.10.2026</span></div>
         <h3>„Trio na ciało”</h3>
         <p>Trzy zabiegi na ciało podczas jednej wizyty: masaż podciśnieniowo-rolkowy LPG, mikrowibracja kompresyjna Endosphere i presoterapia. Parametry dobiera specjalista.</p>
-        <a href="https://booksy.com/pl-pl/111627_marsele-beauty-clinic-kosmetologia-masaz-mezoterapia-laserowa-epilacja_salon-kosmetyczny_3_warszawa" target="_blank" rel="noopener" class="btn btn-dark magnetic"><span class="lbl">Umów się</span> <span class="arr"></span></a>
+        <a href="#booking" data-svc="LPG / Endosphere / presoterapia" class="btn btn-dark magnetic"><span class="lbl">Umów się</span> <span class="arr"></span></a>
       </article>
       <article class="of reveal">
         <div class="of-top"><span class="of-tag">Twarz</span><span class="of-date">do 31.10.2026</span></div>
         <h3>Morpheus 8 — cała twarz</h3>
         <p>Radiofrekwencja mikroigłowa na całą twarz: jeden zabieg. Wcześniej lekarz ocenia skórę i sprawdza przeciwwskazania.</p>
-        <a href="https://booksy.com/pl-pl/111627_marsele-beauty-clinic-kosmetologia-masaz-mezoterapia-laserowa-epilacja_salon-kosmetyczny_3_warszawa" target="_blank" rel="noopener" class="btn btn-dark magnetic"><span class="lbl">Umów się</span> <span class="arr"></span></a>
+        <a href="#booking" data-svc="Morpheus 8" class="btn btn-dark magnetic"><span class="lbl">Umów się</span> <span class="arr"></span></a>
       </article>
     </div>
     <p class="of-left reveal" id="ofLeft"></p>
@@ -1657,7 +1706,7 @@ a.rt:hover{border-color:var(--ink)}
     </div>
     <div class="seo-lang reveal">
       <h3>Kosmetolog, który mówi <em>Twoim językiem</em></h3>
-      <p>Wizyty prowadzimy po polsku, rosyjsku i ukraińsku. Kosmetolog rosyjskojęzyczny i ukraińskojęzyczny w Warszawie to wygoda: o celach, przeciwwskazaniach i pielęgnacji po zabiegu rozmawiasz spokojnie, bez tłumacza. Zapisy przez <a href="https://booksy.com/pl-pl/111627_marsele-beauty-clinic-kosmetologia-masaz-mezoterapia-laserowa-epilacja_salon-kosmetyczny_3_warszawa" target="_blank" rel="noopener">Booksy</a>, telefonicznie <a href="tel:+48736363933">+48 736 363 933</a> lub przez <a href="https://wa.me/48736363933" target="_blank" rel="noopener">WhatsApp</a>.</p>
+      <p>Wizyty prowadzimy po polsku, rosyjsku i ukraińsku. Kosmetolog rosyjskojęzyczny i ukraińskojęzyczny w Warszawie to wygoda: o celach, przeciwwskazaniach i pielęgnacji po zabiegu rozmawiasz spokojnie, bez tłumacza. Zapisy przez <a href="#booking">formularz na stronie</a>, telefonicznie <a href="tel:+48736363933">+48 736 363 933</a> lub przez <a href="https://wa.me/48736363933" target="_blank" rel="noopener">WhatsApp</a>.</p>
     </div>
   </div>
 </section>
@@ -1673,7 +1722,7 @@ a.rt:hover{border-color:var(--ink)}
       <ul class="loc-list reveal">
         <li><span class="loc-ic">M</span><div><b>Metro Świętokrzyska — 350 m</b><small>około 5 minut pieszo · linie M1 i M2</small></div></li>
         <li><span class="loc-ic">T</span><div><b>Tramwaje na ul. Marszałkowskiej</b><small>przystanek obok kliniki</small></div></li>
-        <li><span class="loc-ic">✆</span><div><b>Wizyty po umówieniu</b><small>Booksy, telefon lub WhatsApp</small></div></li>
+        <li><span class="loc-ic">✆</span><div><b>Wizyty po umówieniu</b><small>Formularz na stronie, telefon lub WhatsApp</small></div></li>
       </ul>
       <div class="loc-actions reveal">
         <a href="https://www.google.com/maps/search/?api=1&amp;query=Marsza%C5%82kowska+140%2F3%2C+00-061+Warszawa" target="_blank" rel="noopener" class="btn btn-dark magnetic"><span class="lbl">Otwórz w Google Maps</span> <span class="arr"></span></a>
@@ -1709,9 +1758,22 @@ a.rt:hover{border-color:var(--ink)}
     <span class="eyebrow reveal">Diagnostyka skóry · 0 zł</span>
     <h2 class="split">Zacznij <em>od diagnostyki</em></h2>
     <p class="reveal">W 20 minut lekarz oceni skórę i przygotuje pisemny plan: jakie zabiegi, ile sesji i ile kosztuje cała kuracja. Bezpłatnie i bez zobowiązań.</p>
+    <form class="bk-form reveal" id="bkForm" novalidate>
+      <div class="bk-grid">
+        <label class="bk-f"><span>Imię *</span><input name="name" autocomplete="given-name" required></label>
+        <label class="bk-f"><span>Nazwisko *</span><input name="surname" autocomplete="family-name" required></label>
+        <label class="bk-f"><span>Telefon *</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+48" required></label>
+        <label class="bk-f"><span>E-mail *</span><input name="email" type="email" autocomplete="email" required></label>
+        <label class="bk-f bk-wide"><span>Zabieg</span><select name="service"><option value="">Wybierz zabieg</option><option>Bezpłatna diagnostyka skóry</option><option>Morpheus 8</option><option>Mezoterapia / biorewitalizacja</option><option>Korekta zmarszczek mimicznych</option><option>Depilacja laserowa</option><option>Laseroterapia skóry</option><option>LPG / Endosphere / presoterapia</option><option>Pielęgnacja i oczyszczanie twarzy</option><option>Inne</option></select></label>
+        <label class="bk-f bk-wide"><span>Komentarz</span><textarea name="message" rows="2" placeholder="Dogodny termin, pytania — opcjonalnie"></textarea></label>
+      </div>
+      <input class="bk-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="bk-consent"><input type="checkbox" name="consent" required><span>Wyrażam zgodę na przetwarzanie moich danych w celu kontaktu w sprawie wizyty. Więcej w <a href="privacy.html">polityce prywatności</a>.</span></label>
+      <div class="bk-row"><button class="btn btn-light magnetic bk-submit" type="submit"><span class="lbl">Wyślij zgłoszenie</span> <span class="arr"></span></button><p class="bk-msg" role="status" aria-live="polite"></p></div>
+    </form>
     <div class="cta-actions reveal">
-      <a href="https://ig.me/m/barnowska_beauty_clinic" target="_blank" rel="noopener" class="btn btn-light magnetic"><span class="lbl">Umów konsultację</span> <span class="arr"></span></a>
-      <span class="cta-note">Napisz do nas na Instagram Direct — dobierzemy dogodny termin<br>Wybrałaś już zabieg? <a class="cta-tel" href="https://booksy.com/pl-pl/111627_marsele-beauty-clinic-kosmetologia-masaz-mezoterapia-laserowa-epilacja_salon-kosmetyczny_3_warszawa" target="_blank" rel="noopener">Zarezerwuj w Booksy</a><br>Wizyty po polsku, rosyjsku i ukraińsku<br>Lub zadzwoń: <a class="cta-tel" href="tel:+48736363933">+48 736 363 933</a> · <a class="cta-tel" href="https://wa.me/48736363933" target="_blank" rel="noopener">WhatsApp</a></span>
+      <a href="https://ig.me/m/barnowska_beauty_clinic" target="_blank" rel="noopener" class="btn btn-ghost magnetic"><span class="lbl">Umów konsultację</span> <span class="arr"></span></a>
+      <span class="cta-note">Odpowiemy na zgłoszenie w ciągu dnia roboczego<br>Wizyty po polsku, rosyjsku i ukraińsku<br>Lub zadzwoń: <a class="cta-tel" href="tel:+48736363933">+48 736 363 933</a> · <a class="cta-tel" href="https://wa.me/48736363933" target="_blank" rel="noopener">WhatsApp</a></span>
     </div>
   </div>
 </section>
@@ -1761,6 +1823,13 @@ a.rt:hover{border-color:var(--ink)}
 </div>
 <button class="to-top round hov" id="toTop" aria-label="Do góry"><span class="circle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></button>
 
+<div class="bk-pop" id="bkPop" role="dialog" aria-labelledby="bkPopTitle" aria-hidden="true">
+  <button class="bk-pop-x" type="button" aria-label="Zamknij">×</button>
+  <span class="ck-eyebrow"><i></i>Diagnostyka skóry · 0 zł</span>
+  <h3 id="bkPopTitle">Umów się <em>na konsultację</em></h3>
+  <p>Zostaw zgłoszenie — oddzwonimy i dobierzemy dogodny termin.</p>
+  <a href="#booking" class="ck-btn dark bk-pop-go">Umów się teraz</a>
+</div>
 <div class="ck" id="ck" role="dialog" aria-modal="false" aria-labelledby="ckTitle" aria-describedby="ckText" data-lenis-prevent>
   <span class="ck-eyebrow"><i></i>Cookie</span>
   <h3 id="ckTitle">Dbamy o <em>Twoją prywatność</em></h3>
@@ -1806,6 +1875,61 @@ a.rt:hover{border-color:var(--ink)}
   });
   window.bbcConsent=read();
   if(!window.bbcConsent) setTimeout(function(){ open(false); }, 2200);
+})();
+</script>
+<script>
+(function(){
+  /* Адрес Google Apps Script, куда уходят заявки (Google Таблица + письмо) */
+  var FORM_URL='https://script.google.com/macros/s/AKfycbzlJf8epRqs9pFIJJef31HpT4stFFDg8t0FOYV8q21Zts7GfXsf8r699qF-FXV47PEC/exec';
+  var root=document.documentElement, f=document.getElementById('bkForm');
+  var L={ok:'Dziękujemy! Zgłoszenie wysłane — skontaktujemy się w ciągu dnia roboczego.',
+         err:'Nie udało się wysłać zgłoszenia. Zadzwoń do nas lub napisz na WhatsApp.',
+         req:'Wypełnij wymagane pola i zaznacz zgodę.'};
+  if(f){
+    var sel=f.querySelector('select[name=service]'), msg=f.querySelector('.bk-msg'), btn=f.querySelector('.bk-submit');
+    document.addEventListener('click',function(e){
+      var a=e.target.closest&&e.target.closest('a[data-svc]');
+      if(a&&sel){ for(var i=0;i<sel.options.length;i++){ if(sel.options[i].text===a.getAttribute('data-svc')){ sel.selectedIndex=i; } } }
+      if(a||(e.target.closest&&e.target.closest('a[href="#booking"]'))) setTimeout(function(){ try{ f.elements.name.focus({preventScroll:true}); }catch(_){ } },1700);
+    });
+    f.addEventListener('input',function(e){ e.target.classList&&e.target.classList.remove('bad'); });
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(f.elements.website.value) return;
+      var v=function(n){ return (f.elements[n].value||'').trim(); }, bad=false;
+      [['name',function(x){return x.length>1;}],['surname',function(x){return x.length>1;}],
+       ['phone',function(x){return x.replace(/\D/g,'').length>=9;}],['email',function(x){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(x);}]
+      ].forEach(function(r){ var ok=r[1](v(r[0])); f.elements[r[0]].classList.toggle('bad',!ok); if(!ok) bad=true; });
+      var cons=f.querySelector('.bk-consent'); cons.classList.toggle('bad',!f.elements.consent.checked); if(!f.elements.consent.checked) bad=true;
+      if(bad){ msg.textContent=L.req; msg.className='bk-msg err'; return; }
+      var svc=sel.value?sel.options[sel.selectedIndex].text:'';
+      var data=new URLSearchParams({name:v('name'),surname:v('surname'),phone:v('phone'),email:v('email'),service:svc,message:v('message'),lang:root.lang,page:location.href});
+      var fail=function(){ msg.textContent=L.err; msg.className='bk-msg err'; btn.disabled=false; };
+      if(!FORM_URL){ fail(); return; }
+      btn.disabled=true; msg.textContent='…'; msg.className='bk-msg';
+      fetch(FORM_URL,{method:'POST',mode:'no-cors',body:data}).then(function(){
+        f.classList.add('sent'); msg.textContent=L.ok; msg.className='bk-msg ok';
+        try{ localStorage.setItem('bbc-lead','1'); }catch(_){}
+        try{ window.bbcLead&&window.bbcLead(svc); }catch(_){}
+      }).catch(fail);
+    });
+  }
+  /* Всплывающая карточка: после выбора cookie и прокрутки ~30% страницы */
+  var pop=document.getElementById('bkPop'); if(!pop) return;
+  var KEY='bbc-pop-closed', shown=false;
+  function closed(){ try{ return localStorage.getItem(KEY)||localStorage.getItem('bbc-lead'); }catch(_){ return false; } }
+  function hide(remember){ pop.classList.remove('on'); pop.setAttribute('aria-hidden','true'); root.classList.remove('bk-pop-open'); if(remember){ try{ localStorage.setItem(KEY,String(Date.now())); }catch(_){} } }
+  function formVisible(){ var s=document.getElementById('booking'); if(!s) return false; var r=s.getBoundingClientRect(); return r.top<innerHeight&&r.bottom>0; }
+  function check(){
+    if(shown||closed()||root.classList.contains('ck-open')||!window.bbcConsent) return;
+    var h=document.documentElement.scrollHeight-innerHeight; if(h<=0) return;
+    if(scrollY/h>0.3&&!formVisible()){ shown=true; pop.classList.add('on'); pop.setAttribute('aria-hidden','false'); root.classList.add('bk-pop-open'); }
+  }
+  addEventListener('scroll',check,{passive:true});
+  addEventListener('bbc:consent',function(){ setTimeout(check,600); });
+  pop.querySelector('.bk-pop-x').addEventListener('click',function(){ hide(true); });
+  pop.querySelector('.bk-pop-go').addEventListener('click',function(){ hide(true); });
+  addEventListener('scroll',function(){ if(pop.classList.contains('on')&&formVisible()) hide(true); },{passive:true});
 })();
 </script>
 <script src="js/lenis.min.js"></script>
