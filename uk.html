@@ -967,13 +967,17 @@ a.rt:hover{border-color:var(--ink)}
 .rt small{font-size:11px;letter-spacing:.08em;color:var(--muted)}
 
 /* ===== акции ===== */
-.of-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.of-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px}
+.of-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin:0!important;color:var(--ink)!important}
+.of-price b{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,2.6vw,2.6rem);line-height:1;color:var(--brown)}
+.of-price span{font-size:14px;color:var(--ink)}
+.of-price s{font-size:14px;color:var(--muted)}
 .of{position:relative;display:flex;flex-direction:column;gap:16px;padding:clamp(28px,3.4vw,48px);background:var(--warm);border:1px solid var(--line);overflow:hidden}
 .of::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;border:1px solid var(--champagne)}
 .of-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .of-tag{font-size:10px;letter-spacing:.26em;text-transform:uppercase;padding:7px 14px;border-radius:99px;background:var(--champagne);color:var(--ink)}
 .of-date{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brown)}
-.of h3{margin:10px 0 0;font-family:var(--serif);font-weight:300;font-size:clamp(2rem,3.2vw,2.9rem);line-height:1.05}
+.of h3{margin:10px 0 0;font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,2.3vw,2.4rem);line-height:1.08}
 .of p{margin:0;font-size:15px;line-height:1.7;color:var(--muted);max-width:46ch}
 .of .btn{align-self:flex-start;margin-top:10px}
 .of-left{margin:22px 0 0;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brown)}
@@ -1639,17 +1643,26 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
       </div>
       <p class="right lead reveal">Перед кожною процедурою — огляд і перевірка протипоказань. Кількість місць за акцією обмежена.</p>
     </div>
-    <div class="of-grid" data-until="2026-10-31T23:59:59">
+    <div class="of-grid" data-until="2026-11-30T23:59:59">
       <article class="of reveal">
-        <div class="of-top"><span class="of-tag">Тіло</span><span class="of-date">до 31.10.2026</span></div>
-        <h3>«Потрійний удар»</h3>
-        <p>Три процедури для тіла за один візит: вакуумно-роликовий масаж LPG, компресійна мікровібрація Endosphere і пресотерапія. Режими підбирає фахівець.</p>
-        <a href="#booking" data-svc="LPG / Endosphere / пресотерапія" class="btn btn-dark magnetic"><span class="lbl">Записатися</span> <span class="arr"></span></a>
+        <div class="of-top"><span class="of-tag">Обличчя</span><span class="of-date">до 30.11.2026</span></div>
+        <h3>Morpheus 8 — обличчя + шия в подарунок</h3>
+        <p class="of-price"><b>1090 zł</b></p>
+        <p>Радіочастотний мікронідлінг усього обличчя, а зона шиї — у подарунок. Перед процедурою лікар оглядає шкіру й перевіряє протипоказання.</p>
+        <a href="#booking" data-svc="Morpheus 8" class="btn btn-dark magnetic"><span class="lbl">Записатися</span> <span class="arr"></span></a>
       </article>
       <article class="of reveal">
-        <div class="of-top"><span class="of-tag">Обличчя</span><span class="of-date">до 31.10.2026</span></div>
-        <h3>Morpheus 8 — усе обличчя</h3>
-        <p>Радіочастотний мікронідлінг для всього обличчя: одна процедура. Перед нею лікар оглядає шкіру й перевіряє протипоказання.</p>
+        <div class="of-top"><span class="of-tag">Обличчя · шия · декольте</span><span class="of-date">до 30.11.2026</span></div>
+        <h3>Morpheus 8 — обличчя, шия та декольте</h3>
+        <p class="of-price"><b>1590 zł</b></p>
+        <p>Три зони за одну процедуру: обличчя, шия та декольте. Щільність, рельєф і пружність шкіри — без хірургії та тривалої реабілітації.</p>
+        <a href="#booking" data-svc="Morpheus 8" class="btn btn-dark magnetic"><span class="lbl">Записатися</span> <span class="arr"></span></a>
+      </article>
+      <article class="of reveal">
+        <div class="of-top"><span class="of-tag">Комплекс</span><span class="of-date">до 30.11.2026</span></div>
+        <h3>Morpheus 8 + чистка обличчя</h3>
+        <p class="of-price"><b>1090 zł</b><span>+ чистка обличчя 220 zł</span><s>390 zł</s></p>
+        <p>До процедури Morpheus 8 за 1090 zł — чистка обличчя за 220 zł замість 390 zł. Чиста шкіра краще відповідає на процедуру.</p>
         <a href="#booking" data-svc="Morpheus 8" class="btn btn-dark magnetic"><span class="lbl">Записатися</span> <span class="arr"></span></a>
       </article>
     </div>

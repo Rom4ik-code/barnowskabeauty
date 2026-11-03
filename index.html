@@ -967,13 +967,17 @@ a.rt:hover{border-color:var(--ink)}
 .rt small{font-size:11px;letter-spacing:.08em;color:var(--muted)}
 
 /* ===== акции ===== */
-.of-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.of-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px}
+.of-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin:0!important;color:var(--ink)!important}
+.of-price b{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,2.6vw,2.6rem);line-height:1;color:var(--brown)}
+.of-price span{font-size:14px;color:var(--ink)}
+.of-price s{font-size:14px;color:var(--muted)}
 .of{position:relative;display:flex;flex-direction:column;gap:16px;padding:clamp(28px,3.4vw,48px);background:var(--warm);border:1px solid var(--line);overflow:hidden}
 .of::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;border:1px solid var(--champagne)}
 .of-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .of-tag{font-size:10px;letter-spacing:.26em;text-transform:uppercase;padding:7px 14px;border-radius:99px;background:var(--champagne);color:var(--ink)}
 .of-date{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brown)}
-.of h3{margin:10px 0 0;font-family:var(--serif);font-weight:300;font-size:clamp(2rem,3.2vw,2.9rem);line-height:1.05}
+.of h3{margin:10px 0 0;font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,2.3vw,2.4rem);line-height:1.08}
 .of p{margin:0;font-size:15px;line-height:1.7;color:var(--muted);max-width:46ch}
 .of .btn{align-self:flex-start;margin-top:10px}
 .of-left{margin:22px 0 0;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brown)}
@@ -1639,17 +1643,26 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
       </div>
       <p class="right lead reveal">Przed każdym zabiegiem — konsultacja i sprawdzenie przeciwwskazań. Liczba miejsc w promocji jest ograniczona.</p>
     </div>
-    <div class="of-grid" data-until="2026-10-31T23:59:59">
+    <div class="of-grid" data-until="2026-11-30T23:59:59">
       <article class="of reveal">
-        <div class="of-top"><span class="of-tag">Ciało</span><span class="of-date">do 31.10.2026</span></div>
-        <h3>„Trio na ciało”</h3>
-        <p>Trzy zabiegi na ciało podczas jednej wizyty: masaż podciśnieniowo-rolkowy LPG, mikrowibracja kompresyjna Endosphere i presoterapia. Parametry dobiera specjalista.</p>
-        <a href="#booking" data-svc="LPG / Endosphere / presoterapia" class="btn btn-dark magnetic"><span class="lbl">Umów się</span> <span class="arr"></span></a>
+        <div class="of-top"><span class="of-tag">Twarz</span><span class="of-date">do 30.11.2026</span></div>
+        <h3>Morpheus 8 — twarz + szyja gratis</h3>
+        <p class="of-price"><b>1090 zł</b></p>
+        <p>Mikroigłowa radiofrekwencja całej twarzy, a okolica szyi — gratis. Przed zabiegiem lekarz ocenia skórę i sprawdza przeciwwskazania.</p>
+        <a href="#booking" data-svc="Morpheus 8" class="btn btn-dark magnetic"><span class="lbl">Umów się</span> <span class="arr"></span></a>
       </article>
       <article class="of reveal">
-        <div class="of-top"><span class="of-tag">Twarz</span><span class="of-date">do 31.10.2026</span></div>
-        <h3>Morpheus 8 — cała twarz</h3>
-        <p>Radiofrekwencja mikroigłowa na całą twarz: jeden zabieg. Wcześniej lekarz ocenia skórę i sprawdza przeciwwskazania.</p>
+        <div class="of-top"><span class="of-tag">Twarz · szyja · dekolt</span><span class="of-date">do 30.11.2026</span></div>
+        <h3>Morpheus 8 — twarz, szyja i dekolt</h3>
+        <p class="of-price"><b>1590 zł</b></p>
+        <p>Trzy strefy podczas jednego zabiegu: twarz, szyja i dekolt. Gęstość, gładkość i jędrność skóry — bez chirurgii i długiej rekonwalescencji.</p>
+        <a href="#booking" data-svc="Morpheus 8" class="btn btn-dark magnetic"><span class="lbl">Umów się</span> <span class="arr"></span></a>
+      </article>
+      <article class="of reveal">
+        <div class="of-top"><span class="of-tag">Pakiet</span><span class="of-date">do 30.11.2026</span></div>
+        <h3>Morpheus 8 + oczyszczanie twarzy</h3>
+        <p class="of-price"><b>1090 zł</b><span>+ oczyszczanie twarzy 220 zł</span><s>390 zł</s></p>
+        <p>Do zabiegu Morpheus 8 za 1090 zł — oczyszczanie twarzy za 220 zł zamiast 390 zł. Oczyszczona skóra lepiej reaguje na zabieg.</p>
         <a href="#booking" data-svc="Morpheus 8" class="btn btn-dark magnetic"><span class="lbl">Umów się</span> <span class="arr"></span></a>
       </article>
     </div>
