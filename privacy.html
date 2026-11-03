@@ -89,7 +89,7 @@ main ul{color:var(--muted);margin:0 0 14px;padding-left:20px}main li{margin:0 0 
     else if(/wa\.me|whatsapp/i.test(h)) ev='whatsapp_click';
     else if(/^tel:/i.test(h)) ev='phone_click';
     if(ev) gtag('event',ev,{link_url:h,page_language:document.documentElement.lang,transport_type:'beacon'});
-    var cv = (ev==='whatsapp_click'||ev==='instagram_click') ? CONV.kontakt : '';
+    var cv = (ev==='whatsapp_click') ? CONV.kontakt : '';
     if(cv) gtag('event','conversion',{send_to:cv,transport_type:'beacon'});
   },true);
 })();
