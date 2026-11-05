@@ -1201,6 +1201,30 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 }
 @media (prefers-reduced-motion:reduce){.ck,.ck.on{transition:none}}
 
+/* Top-3 services + hero CTA */
+.nav a{white-space:nowrap}
+.hero-cta{display:block;width:max-content;margin-top:16px}.hero-cta .btn{padding:13px 22px;font-size:10.5px;white-space:nowrap;font-style:normal;font-family:var(--sans)}.hero-cta-d{margin-left:auto}.hero-cta-m{display:none}
+@media (min-width:641px){.hero:has(.hero-cta-d) .orbit{top:37%}}
+@media (max-width:640px){.hero-cta-m{display:block}.hero:has(.hero-cta-m) .orbit{display:none}}
+.p-more{margin-right:22px}
+.t3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px)}
+.t3-card{display:flex;flex-direction:column;background:var(--warm);border:1px solid var(--line);transition:transform .8s var(--ease),box-shadow .8s var(--ease)}
+.t3-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(42,33,27,.35)}
+.t3-img{margin:0;aspect-ratio:4/3;overflow:hidden}
+.t3-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.t3-card:hover .t3-img img{transform:scale(1.04)}
+.t3-body{display:flex;flex-direction:column;gap:10px;padding:24px 26px 26px;flex:1}
+.t3-tag{align-self:flex-start;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--brown);background:rgba(234,220,196,.55);padding:6px 10px}
+.t3-body h3{margin:4px 0 0;font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,2.3vw,2.2rem);line-height:1.05}
+.t3-body p{margin:0;font-size:14.5px;line-height:1.6;color:var(--muted)}
+.t3-go{margin-top:auto;padding-top:14px;display:flex;align-items:center;gap:12px;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.t3-go .arr{display:inline-block;width:26px;height:1px;background:currentColor;position:relative;transition:width .8s var(--ease)}
+.t3-go .arr::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.t3-card:hover .t3-go .arr{width:44px}
+#top3{padding-top:clamp(56px,7vw,120px)}
+@media (max-width:900px){.t3-grid{grid-template-columns:1fr}.t3-card{flex-direction:row}.t3-img{aspect-ratio:auto;width:38%;flex:none}.t3-body{padding:18px 18px 20px}}
+@media (max-width:480px){.t3-card{flex-direction:column}.t3-img{width:100%;aspect-ratio:16/9}}
+
 /* Service landing */
 .mp-promo{display:block;margin:6px 0 4px;color:var(--brown);font-weight:600}
 .mp-hero-cta{display:block;margin-top:18px}
@@ -2195,6 +2219,9 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
     (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(performance.now());
   }
 })();
+</script>
+<script>
+(function(){var n=new Date();document.querySelectorAll('[data-hide-after]').forEach(function(e){if(n>new Date(e.getAttribute('data-hide-after')))e.remove();});})();
 </script>
 </body>
 </html>
