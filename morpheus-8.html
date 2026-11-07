@@ -1240,6 +1240,48 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 #body .proc{margin-top:clamp(60px,8vw,130px)}
 @media (max-width:900px){.mp-cols{grid-template-columns:1fr}#concerns .cn-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:420px){#concerns .cn-grid{grid-template-columns:1fr}}
+
+/* ── Landing hero (szybki, bez zasłony) ── */
+.curtain{display:none!important}
+.ld{transition-delay:0s!important;transition-duration:.5s!important}
+.lp-hero{position:relative;z-index:2;background:var(--ivory);padding:calc(118px + env(safe-area-inset-top,0px)) 0 clamp(40px,6vw,80px)}
+.lp-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,80px);align-items:center}
+.lp-eyebrow{display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--brown)}
+.lp-eyebrow::before{content:"";width:40px;height:1px;background:currentColor}
+.lp-h1{margin:18px 0 0;font-family:var(--serif);font-weight:300;font-size:clamp(2.6rem,5.6vw,5.4rem);line-height:.98;letter-spacing:-.02em;color:var(--ink)}
+.lp-h1 em{color:var(--brown);font-style:italic}
+.lp-lead{margin:18px 0 0;font-size:clamp(15px,1.3vw,17px);line-height:1.6;color:var(--muted);max-width:46ch}
+.lp-offer{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin:22px 0 0;padding:14px 18px;background:var(--warm);border:1px solid var(--line);border-left:3px solid var(--brown);max-width:520px}
+.lp-offer small{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--brown);font-weight:500}
+.lp-offer span{font-size:15.5px;color:var(--ink)}
+.lp-offer b{font-weight:600;font-size:1.15em}
+.lp-offer s{color:var(--muted);margin-left:4px}
+.lp-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.lp-trust{display:flex;flex-wrap:wrap;gap:8px 22px;margin:22px 0 0;padding:0;list-style:none;font-size:13px;color:var(--ink)}
+.lp-trust li{display:flex;align-items:center;gap:8px}
+.lp-trust li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brown)}
+.lp-trust .st{color:#A47E52;letter-spacing:2px}
+.lp-anch{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.lp-anch a{font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:9px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);transition:background .4s}
+.lp-anch a:hover{background:var(--warm)}
+.lp-img{margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:2px}
+.lp-img img{width:100%;height:100%;object-fit:cover}
+@media (max-width:900px){.lp-grid{grid-template-columns:1fr}.lp-img{aspect-ratio:16/10;max-height:46vh}}
+@media (max-width:640px){
+  .lp-hero{padding-top:calc(92px + env(safe-area-inset-top,0px))}
+  .lp-h1{font-size:2.5rem}
+  .lp-btns .btn{flex:1;justify-content:center}
+  .lp-trust{gap:6px 16px;font-size:12.5px}
+  .lp-img{order:2}
+  /* cookie: wąski pasek na dole */
+  .ck{left:10px;right:10px;width:auto;bottom:calc(10px + env(safe-area-inset-bottom,0px));padding:14px 16px!important}
+  .ck .ck-eyebrow,.ck h3{display:none}
+  .ck p{font-size:12px;line-height:1.5}
+  .ck-btns{margin-top:10px}
+  .ck-btn{height:40px}
+  .ck-set{margin-top:8px}
+  .m-cta .up{display:none}
+}
 </style>
 <!-- Google tag (GA4 + Ads) — грузится только после согласия в баннере cookie -->
 <script>
@@ -1339,44 +1381,21 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 <div class="page" id="page">
 <main>
 <!-- ───────── HERO ───────── -->
-<section class="hero" id="home">
-  <div class="hero-media" id="heroMedia">
-    <div class="hero-mouse" id="heroMouse"><picture><source media="(max-width:640px)" srcset="img/hero-m.jpg"><img src="img/hero.jpg" srcset="img/hero-1600.jpg 1600w, img/hero.jpg 3200w" sizes="100vw" alt="Lekarz Marina Barnowska w gabinecie" fetchpriority="high"></picture></div>
-    <div class="hero-light"></div>
-    <div class="hero-dim" id="heroDim"></div>
-    <div class="grain" id="grain-hero" aria-hidden="true"></div>
-  </div>
-
-  <div class="wrap hero-content" id="heroContent">
-    <div class="hero-top">
-      <span class="eyebrow ld" style="transition-delay:1.35s">Morpheus 8 · Warszawa</span>
-      <span class="hero-index ld" style="transition-delay:1.45s">Marszałkowska 140/3<br>350 m od metra Świętokrzyska</span>
+<section class="lp-hero" id="home">
+  <div class="wrap lp-grid">
+    <div>
+      <span class="lp-eyebrow">Morpheus 8 · Warszawa Centrum</span>
+      <h1 class="lp-h1">Morpheus 8 <em>w Warszawie</em></h1>
+      <p class="lp-lead">Mikroigłowa radiofrekwencja: blizny potrądzikowe, rozstępy, jędrność i owal twarzy — bez skalpela.</p>
+      <p class="lp-offer" data-hide-after="2026-11-30T23:59:59"><small>Promocja do 30.11</small><span>Twarz + szyja — <b>1090 zł</b> <s>1600 zł</s></span></p>
+      <div class="lp-btns"><a href="#booking" data-svc="Morpheus 8" class="btn btn-dark magnetic"><span class="lbl">Zapisz się</span> <span class="arr"></span></a><a href="tel:+48736363933" class="btn btn-line magnetic"><span class="lbl">Zadzwoń</span></a></div>
+      <ul class="lp-trust"><li><span class="st">★★★★★</span>&nbsp;4,9 Google · 120 opinii</li><li>10+ lat doświadczenia</li><li>Plan ustala lekarz</li><li>350 m od metra Świętokrzyska</li></ul>
+      <nav class="lp-anch" aria-label="Na tej stronie"><a href="#morpheus">Zabieg</a><a href="#prices">Ceny</a><a href="#about">Lekarz</a><a href="#faq">Pytania</a></nav>
     </div>
-    <div class="hero-bottom">
-      <div class="hero-aside ld" style="transition-delay:2.15s"><h1 class="hero-kicker">Morpheus 8 w Warszawie — mikroigłowa radiofrekwencja</h1><span class="stars">★★★★★<b>4,9 Google · 120 opinii</b></span><b class="mp-promo">Promocja do 30.11: twarz + szyja gratis — 1090&nbsp;zł</b> Przed zabiegiem bezpłatna diagnostyka skóry u lekarza.<span class="mp-hero-cta"><a href="#booking" data-svc="Morpheus 8" class="btn btn-dark magnetic"><span class="lbl">Zarezerwuj termin</span> <span class="arr"></span></a></span></div>
-      <p class="h1" aria-label="Gęstsza, gładsza skóra — bez skalpela.">
-        <span class="line l1"><span style="transition-delay:1.5s">Gęstsza, gładsza</span></span>
-        <span class="line l2"><span style="transition-delay:1.64s"><em>skóra —</em></span></span>
-        <span class="line l3"><span style="transition-delay:1.78s">bez skalpela.</span></span>
-      </p>
-    </div>
+    <figure class="lp-img"><img src="img/face-glow.jpg" srcset="img/face-glow-600.jpg 600w, img/face-glow.jpg 1100w" sizes="(max-width:900px) 92vw, 40vw" alt="Gładka, promienna skóra twarzy" fetchpriority="high"></figure>
   </div>
-
-  <a href="#booking" class="orbit ld magnetic" style="transition-delay:2.3s" aria-label="Umów Morpheus 8" data-svc="Morpheus 8" data-cursor="view">
-    <svg class="ring-text" viewBox="0 0 100 100" aria-hidden="true">
-      <defs><path id="orbitPath" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
-      <text><textPath href="#orbitPath" textLength="236">BOOK YOUR APPOINTMENT • BOOK YOUR APPOINTMENT •</textPath></text>
-    </svg>
-    <span class="core"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-  </a>
+  <div hidden aria-hidden="true"><div class="hero-media" id="heroMedia"><div id="heroMouse"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt=""></div><div id="heroDim"></div></div><div id="heroContent"></div><span class="orbit"></span></div>
 </section>
-
-<!-- ───────── MARQUEE ───────── -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track" id="marquee">
-    <span>MORPHEUS 8 • <i>KOLAGEN</i> • JĘDRNOŚĆ • <i>BLIZNY</i> • ROZSTĘPY • <i>NATURALNY EFEKT</i> •</span>
-  </div>
-</div>
 
 <!-- ───────── OFFERS ───────── -->
 <section class="section offers" id="offers">
@@ -1738,7 +1757,7 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 
 <a class="wa-float" href="https://wa.me/48736363933" target="_blank" rel="noopener" aria-label="Napisz na WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 5.83 2.42 8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.29Z"/></svg></a>
 <div class="m-cta" id="mCta">
-  <a href="#booking" class="btn btn-dark"><span class="lbl">Umów konsultację</span></a>
+  <a href="#booking" data-svc="Morpheus 8" class="btn btn-dark"><span class="lbl">Zapisz się</span></a><a href="tel:+48736363933" class="btn btn-line"><span class="lbl">Zadzwoń</span></a>
   <button class="up" id="mUp" aria-label="Do góry"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20V5M6 11l6-6 6 6"/></svg></button>
 </div>
 <button class="to-top round hov" id="toTop" aria-label="Do góry"><span class="circle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></button>
@@ -2038,10 +2057,12 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
   },.4);
 
   /* ── Marquee: бесшовный, без остановок (JS, не зависит от ширины) ── */
-  const mq=document.getElementById('marquee');
+  const mq=document.getElementById('marquee')||document.createElement('div');
+  if(!mq.firstElementChild) mq.appendChild(document.createElement('span'));
   const unit=mq.firstElementChild;
   function fillMarquee(){
     while(mq.children.length>1) mq.lastElementChild.remove();
+    if(!unit.offsetWidth) return;
     const need=Math.ceil((innerWidth*2)/unit.offsetWidth)+1;
     for(let k=0;k<need;k++) mq.appendChild(unit.cloneNode(true));
   }
@@ -2051,7 +2072,7 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
   addEventListener('resize',()=>{ fillMarquee(); uw=unit.offsetWidth; });
   (function mqLoop(t){
     const dt=Math.min(64,t-mLast); mLast=t;
-    if(!reduce){ mx-=dt*0.045; if(-mx>=uw) mx+=uw; mq.style.transform=`translate3d(${mx.toFixed(2)}px,0,0)`; }
+    if(!reduce){ mx-=dt*0.045; if(uw&&-mx>=uw) mx+=uw; mq.style.transform=`translate3d(${mx.toFixed(2)}px,0,0)`; }
     requestAnimationFrame(mqLoop);
   })(mLast);
 
@@ -2129,7 +2150,7 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
   const vis=new Set();
   const bio=new IntersectionObserver(es=>{ es.forEach(e=>e.isIntersecting?vis.add(e.target):vis.delete(e.target)); ctaBlocked=vis.size>0; ctaTick(); },{threshold:.05});
   blockers.forEach(b=>b&&bio.observe(b));
-  function ctaTick(){ mCta.classList.toggle('show', scrollY>innerHeight*0.85 && !ctaBlocked); }
+  function ctaTick(){ mCta.classList.toggle('show', !ctaBlocked); }
   addEventListener('scroll',ctaTick,{passive:true});
   document.getElementById('mUp').addEventListener('click',()=>{ lenis?lenis.scrollTo(0,{duration:1.4,easing:x=>1-Math.pow(1-x,4)}):scrollTo({top:0,behavior:reduce?'auto':'smooth'}); });
 
@@ -2257,5 +2278,6 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 <script>
 (function(){var n=new Date();document.querySelectorAll('[data-hide-after]').forEach(function(e){if(n>new Date(e.getAttribute('data-hide-after')))e.remove();});})();
 </script>
+<script>(function(){var n=new Date();document.querySelectorAll('[data-hide-after]').forEach(function(e){if(n>new Date(e.getAttribute('data-hide-after')))e.remove();});})();</script>
 </body>
 </html>
