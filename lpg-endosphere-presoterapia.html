@@ -2119,7 +2119,7 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
   /* ── Mobile: sticky CTA ── */
   const mCta=document.getElementById('mCta');
   let ctaBlocked=false;
-  const blockers=[document.getElementById('booking'),document.getElementById('contacts')];
+  const blockers=[document.querySelector('.lp-btns'),document.getElementById('booking'),document.getElementById('contacts')];
   const vis=new Set();
   const bio=new IntersectionObserver(es=>{ es.forEach(e=>e.isIntersecting?vis.add(e.target):vis.delete(e.target)); ctaBlocked=vis.size>0; ctaTick(); },{threshold:.05});
   blockers.forEach(b=>b&&bio.observe(b));
