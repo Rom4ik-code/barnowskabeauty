@@ -1228,15 +1228,17 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 @media (max-width:900px){.t3-grid{grid-template-columns:1fr}.t3-card{flex-direction:row}.t3-img{aspect-ratio:auto;width:38%;flex:none}.t3-body{padding:18px 18px 20px}}
 @media (max-width:480px){.t3-card{flex-direction:column}.t3-img{width:100%;aspect-ratio:16/9}}
 </style>
-<!-- Google tag (GA4 + Ads) — грузится только после согласия в баннере cookie -->
+<!-- Google tag (GA4 + Ads) — Consent Mode v2 (advanced): тег грузится сразу, cookies только после согласия -->
 <script>
 (function(){
   var GA='G-D163CLBLMD', ADS='AW-18531775825';
-  var CONV={form:'AW-18531775825/tuRCCLSRy6sdENHq0YRF', kontakt:'AW-18531775825/xA-QCJ-_zKsdENHq0YRF'}; /* kontakt: метка конверсии WhatsApp/Instagram */
+  var CONV={form:'AW-18531775825/tuRCCLSRy6sdENHq0YRF', kontakt:'AW-18531775825/xA-QCJ-_zKsdENHq0YRF', phone:'AW-18531775825/ffK_CLC8870dENHq0YRF'}; /* kontakt: метка конверсии WhatsApp/Instagram */
   window.dataLayer=window.dataLayer||[];
   window.gtag=function(){dataLayer.push(arguments);};
-  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
-  var loaded=false;
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
+  gtag('set','ads_data_redaction',true);
+  gtag('set','url_passthrough',true);
+  var loaded=true;
   function apply(c){
     if(!c) return;
     gtag('consent','update',{
@@ -1245,17 +1247,12 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
       ad_user_data:c.marketing?'granted':'denied',
       ad_personalization:c.marketing?'granted':'denied'
     });
-    if(!loaded && (c.analytics||c.marketing)){
-      loaded=true;
-      var s=document.createElement('script'); s.async=true;
-      s.src='https://www.googletagmanager.com/gtag/js?id='+GA; document.head.appendChild(s);
-      gtag('js',new Date());
-      gtag('config',GA);
-      if(ADS) gtag('config',ADS);
-    }
   }
   var c=null; try{ c=JSON.parse(localStorage.getItem('bbc-cookie-consent')||'null'); }catch(e){}
   apply(c);
+  (function(){ var s=document.createElement('script'); s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+GA; document.head.appendChild(s);
+    gtag('js',new Date()); gtag('config',GA); if(ADS) gtag('config',ADS); })();
   window.addEventListener('bbc:consent',function(e){ apply(e.detail); });
   /* заявка с формы на сайте */
   window.bbcLead=function(svc){ if(!loaded) return; gtag('event','generate_lead',{service:svc||'',page_language:document.documentElement.lang}); gtag('event','conversion',{send_to:CONV.form}); };
@@ -1267,7 +1264,7 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
     else if(/wa\.me|whatsapp/i.test(h)) ev='whatsapp_click';
     else if(/^tel:/i.test(h)) ev='phone_click';
     if(ev) gtag('event',ev,{link_url:h,page_language:document.documentElement.lang,transport_type:'beacon'});
-    var cv = (ev==='whatsapp_click') ? CONV.kontakt : '';
+    var cv = (ev==='whatsapp_click') ? CONV.kontakt : (ev==='phone_click') ? CONV.phone : '';
     if(cv) gtag('event','conversion',{send_to:cv,transport_type:'beacon'});
   },true);
 })();
