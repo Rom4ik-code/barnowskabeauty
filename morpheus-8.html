@@ -1150,6 +1150,18 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 .menu-open .header .lang a[aria-current]{color:var(--warm)!important}
 .menu-open .header .lang i{background:rgba(255,253,249,.3)}
 @media (max-width:640px){.bar-r{gap:16px}.lang{font-size:12px}}
+
+/* ===== efekty przed / po ===== */
+.efx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px)}
+.efx{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fffdf9}
+.efx-pair{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line)}
+.efx-pair figure{margin:0;position:relative;aspect-ratio:3/4;overflow:hidden}
+.efx-pair img{width:100%;height:100%;object-fit:cover;display:block}
+.efx-tag{position:absolute;left:10px;top:10px;font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:rgba(255,253,249,.88);color:var(--ink)}
+.efx-tag.po{background:rgba(43,33,28,.86);color:#fffdf9}
+.efx figcaption{padding:14px 18px 16px;font-size:13.5px;line-height:1.55;color:var(--brown)}
+.efx-note{margin-top:22px;font-size:12.5px;color:var(--brown);opacity:.8}
+@media (max-width:900px){.efx-grid{grid-template-columns:1fr}}
 /* ===== cookie consent ===== */
 .ck{position:fixed;left:var(--gutter);bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:160;width:min(440px,calc(100vw - 2*var(--gutter)));
   background:rgba(255,253,249,.94);-webkit-backdrop-filter:blur(20px) saturate(1.2);backdrop-filter:blur(20px) saturate(1.2);
@@ -1478,6 +1490,43 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
       <a class="cn reveal" href="#booking" data-svc="Morpheus 8"><span class="cn-n">03</span><h3>Pory i struktura</h3><p>Rozszerzone pory, nierówna tekstura, zmęczona, matowa skóra.</p><span class="cn-go"><span>Umów się</span><span class="arr"></span></span></a>
       <a class="cn reveal" href="#booking" data-svc="Morpheus 8"><span class="cn-n">04</span><h3>Rozstępy i skóra po ciąży</h3><p>Brzuch, biust, ramiona, kolana — gęstsza i bardziej napięta skóra ciała.</p><span class="cn-go"><span>Umów się</span><span class="arr"></span></span></a>
     </div>
+  </div>
+</section>
+
+<!-- ───────── EFEKTY ───────── -->
+<section class="section" id="efekty">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="left">
+        <span class="eyebrow reveal">Efekty</span>
+        <h2 class="h2 split">Przed i po <em>Morpheus 8</em></h2>
+      </div>
+      <p class="right lead reveal">Prawdziwe zdjęcia pacjentek naszej kliniki w Warszawie.</p>
+    </div>
+    <div class="efx-grid">
+      <figure class="efx reveal">
+        <div class="efx-pair">
+          <figure><img src="img/efekty/m1-przed-420.jpg" srcset="img/efekty/m1-przed-420.jpg 420w, img/efekty/m1-przed.jpg 720w" sizes="(max-width:900px) 46vw, 15vw" alt="Skóra twarzy przed zabiegiem Morpheus 8" loading="lazy" width="420" height="560"><span class="efx-tag">Przed</span></figure>
+          <figure><img src="img/efekty/m1-po-420.jpg" srcset="img/efekty/m1-po-420.jpg 420w, img/efekty/m1-po.jpg 720w" sizes="(max-width:900px) 46vw, 15vw" alt="Skóra twarzy po zabiegu Morpheus 8" loading="lazy" width="420" height="560"><span class="efx-tag po">Po</span></figure>
+        </div>
+        <figcaption>Twarz — spłycone bruzdy i wygładzone zmarszczki.</figcaption>
+      </figure>
+      <figure class="efx reveal">
+        <div class="efx-pair">
+          <figure><img src="img/efekty/m2-przed-420.jpg" srcset="img/efekty/m2-przed-420.jpg 420w, img/efekty/m2-przed.jpg 720w" sizes="(max-width:900px) 46vw, 15vw" alt="Skóra twarzy przed zabiegiem Morpheus 8" loading="lazy" width="420" height="560"><span class="efx-tag">Przed</span></figure>
+          <figure><img src="img/efekty/m2-po-420.jpg" srcset="img/efekty/m2-po-420.jpg 420w, img/efekty/m2-po.jpg 720w" sizes="(max-width:900px) 46vw, 15vw" alt="Skóra twarzy po zabiegu Morpheus 8" loading="lazy" width="420" height="560"><span class="efx-tag po">Po</span></figure>
+        </div>
+        <figcaption>Twarz — gładsza tekstura i zdrowy, promienny koloryt.</figcaption>
+      </figure>
+      <figure class="efx reveal">
+        <div class="efx-pair">
+          <figure><img src="img/efekty/m3-przed-420.jpg" srcset="img/efekty/m3-przed-420.jpg 420w, img/efekty/m3-przed.jpg 720w" sizes="(max-width:900px) 46vw, 15vw" alt="Skóra twarzy przed zabiegiem Morpheus 8" loading="lazy" width="420" height="560"><span class="efx-tag">Przed</span></figure>
+          <figure><img src="img/efekty/m3-po-420.jpg" srcset="img/efekty/m3-po-420.jpg 420w, img/efekty/m3-po.jpg 720w" sizes="(max-width:900px) 46vw, 15vw" alt="Skóra twarzy po zabiegu Morpheus 8" loading="lazy" width="420" height="560"><span class="efx-tag po">Po</span></figure>
+        </div>
+        <figcaption>Zdjęcie „po” wykonane bezpośrednio po zabiegu — zaczerwienienie ustępuje w ciągu 2–3 dni.</figcaption>
+      </figure>
+    </div>
+    <p class="efx-note reveal">Efekty są indywidualne i zależą od stanu skóry oraz liczby zabiegów. Plan ustala lekarz podczas konsultacji.</p>
   </div>
 </section>
 
